@@ -29,10 +29,8 @@ def p2Value (tp2_matrix,xco,yco):
 	tmp_value = tmp_value + tp2_matrix[xco-1][yco-1]
 	tmp_value = tmp_value + tp2_matrix[xco][yco-1]
 	tmp_value = tmp_value + tp2_matrix[xco+1][yco-1]
-
 	tmp_value = tmp_value + tp2_matrix[xco-1][yco]
 	tmp_value = tmp_value + tp2_matrix[xco+1][yco]
-
 	tmp_value = tmp_value + tp2_matrix[xco-1][yco+1]
 	tmp_value = tmp_value + tp2_matrix[xco][yco+1]
 	tmp_value = tmp_value + tp2_matrix[xco+1][yco+1]
