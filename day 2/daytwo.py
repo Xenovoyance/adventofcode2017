@@ -1,5 +1,6 @@
 # input with trailing whitespace with 16 columns over 17 rows
-# find largest and smallest on each row, take the difference and add it to p1_total_sum
+# P1: find largest and smallest on each row, take the difference and add it to p1_total_sum
+# P2: Find even divisions per row, sum up
 
 input = '1208	412	743	57	1097	53	71	1029	719	133	258	69	1104	373	367	365 '\
 '4011	4316	1755	4992	228	240	3333	208	247	3319	4555	717	1483	4608	1387	3542 '\
@@ -23,19 +24,15 @@ p2_total_sum = 0
 numbers = input.split(" ")
 
 for x in range (0, len(numbers)):
+	# typecast to ints
 	individual_numbers = map(int, numbers[x].split())
 	p1_total_sum = p1_total_sum + (max(individual_numbers) - min(individual_numbers))
-
-	p2_first = 0
-	p2_second = 0
 
 	for y in range (0, len(individual_numbers)):
 		for z in range (0, len(individual_numbers)):
 			if ((individual_numbers[y] != individual_numbers[z]) & ((individual_numbers[y] % individual_numbers[z]) == 0)):
 				p2_total_sum = p2_total_sum + (individual_numbers[y] / individual_numbers[z])
 				break
-
-
 
 print "P1: " + str(p1_total_sum)
 print "P2: " + str(p2_total_sum)
