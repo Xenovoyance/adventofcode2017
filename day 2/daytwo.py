@@ -1,5 +1,5 @@
 # input with trailing whitespace with 16 columns over 17 rows
-# find largest and smallest on each row, take the difference and add it to total_sum
+# find largest and smallest on each row, take the difference and add it to p1_total_sum
 
 input = '1208	412	743	57	1097	53	71	1029	719	133	258	69	1104	373	367	365 '\
 '4011	4316	1755	4992	228	240	3333	208	247	3319	4555	717	1483	4608	1387	3542 '\
@@ -18,11 +18,24 @@ input = '1208	412	743	57	1097	53	71	1029	719	133	258	69	1104	373	367	365 '\
 '2290	157	2759	3771	4112	2063	153	3538	3740	130	3474	1013	180	2164	170	189 '\
 '525	1263	146	954	188	232	1019	918	268	172	1196	1091	1128	234	650	420'
 
-total_sum = 0
+p1_total_sum = 0
+p2_total_sum = 0
 numbers = input.split(" ")
 
 for x in range (0, len(numbers)):
 	individual_numbers = map(int, numbers[x].split())
-	total_sum = total_sum + (max(individual_numbers) - min(individual_numbers))
+	p1_total_sum = p1_total_sum + (max(individual_numbers) - min(individual_numbers))
 
-print total_sum
+	p2_first = 0
+	p2_second = 0
+
+	for y in range (0, len(individual_numbers)):
+		for z in range (0, len(individual_numbers)):
+			if ((individual_numbers[y] != individual_numbers[z]) & ((individual_numbers[y] % individual_numbers[z]) == 0)):
+				p2_total_sum = p2_total_sum + (individual_numbers[y] / individual_numbers[z])
+				break
+
+
+
+print "P1: " + str(p1_total_sum)
+print "P2: " + str(p2_total_sum)
