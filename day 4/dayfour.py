@@ -18,10 +18,9 @@ with open('input_dayfour.txt') as f:
 
 		for x in range(0,len(words)):
 			for y in range(0,len(words)):
-				if (x!=y):
-					if (is_anagram(words[x], words[y])):
-						anagrams = anagrams + 1
-						break
+				if (x!=y) and (is_anagram(words[x], words[y])):
+					anagrams = anagrams + 1
+					break
 
 			if (last_word == words[x]):
 				dups = dups + 1
@@ -32,7 +31,6 @@ with open('input_dayfour.txt') as f:
 			non_duplicates = non_duplicates + 1
 		if (anagrams == 0):
 			non_anagram = non_anagram + 1
-		print anagrams
 
 print "P1: " + str(non_duplicates)
 print "P2: " + str(non_anagram)
