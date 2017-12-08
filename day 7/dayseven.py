@@ -33,3 +33,6 @@ with open('input_dayseven.txt') as f:
 
 result.sort()
 print "Top node is: " + result[0]['name']
+
+# Assert to see that it is still working with the correct input
+assert result[0]['name'] == 'airlri'
