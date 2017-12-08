@@ -53,7 +53,4 @@ while (True):
 
     # 14037 too high, 5041 too low
     if (iterations > 15000):
-        #print hashes
         break
-
-# 3953 too high
