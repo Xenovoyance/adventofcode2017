@@ -16,7 +16,7 @@ if (int(input_string[len(input_string)-1]) == int(input_string[0])):
 	p1_total_sum = p1_total_sum + int(input_string[len(input_string)-1])
 
 # Main loop
-for x in range(0, input_string_length): 
+for x in range(0, input_string_length):
 	# Part 1
 	if (int(input_string[x]) == p1_last_selected_digit):
 		p1_total_sum = p1_total_sum + int(input_string[x])
@@ -27,7 +27,7 @@ for x in range(0, input_string_length):
 		p2_index = (x+p2_loc) - input_string_length
 	else:
 		p2_index = x + p2_loc
-		
+
 	if (input_string[x] == input_string[p2_index]):
 		p2_total_sum = p2_total_sum + int(input_string[p2_index])
 
