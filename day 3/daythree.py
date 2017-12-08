@@ -23,7 +23,6 @@ x = 4
 
 def p2Value (tp2_matrix,xco,yco):
 	"Return sum of the near coordinates in matrix"
-
 	tmp_value = 0
 
 	tmp_value = tmp_value + tp2_matrix[xco-1][yco-1]
