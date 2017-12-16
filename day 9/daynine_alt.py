@@ -1,7 +1,7 @@
-run_env = "test" ## test or prod
+run_env = "prod" ## test or prod
 
-if run_env == "prod":
-    input = "test_input.txt"
+if run_env == "test":
+    input = "test_input2.txt"
 else:
     input = "input_daynine.txt"
 
@@ -9,6 +9,7 @@ block_level = 0
 row_score = 0
 skip_next = False
 is_garbage = False
+garbage_counter = 0
 
 with open(input) as blockstream:
     for stream in blockstream:
@@ -18,6 +19,7 @@ with open(input) as blockstream:
         row_score = 0
         skip_next = False
         is_garbage = False
+        garbage_counter = 0
         while True:
             if char_index >= len(stream) - 1:
                 break
@@ -25,8 +27,10 @@ with open(input) as blockstream:
                 skip_next = False
             else:
                 if stream[char_index] == "<":
+                    if is_garbage is True:
+                        garbage_counter += 1
                     is_garbage = True
-                if stream[char_index] == "!":
+                elif stream[char_index] == "!":
                     skip_next = True
                 elif is_garbage is False:
                     if stream[char_index] == "{":
@@ -37,9 +41,14 @@ with open(input) as blockstream:
                 else:
                     if stream[char_index] == ">":
                         is_garbage = False
+                    else:
+                        garbage_counter += 1
             char_index += 1
         print "Row score: %d" % row_score
+        print "Garbage counter: %d" % garbage_counter
+"""
         if row_score != 13154:
             print "Something broke the code. Go back."
+"""
 
-# Known issues: !! will not work
+# Known issues: !! might not work
