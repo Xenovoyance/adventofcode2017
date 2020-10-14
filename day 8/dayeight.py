@@ -38,6 +38,7 @@ with open(input) as f:
         print register_values
         print words[1]
         if_not_known_add(words[0])
+        
         if_not_known_add(words[4])
         if words[5] == ">":
             if register_values[register_names.index(words[4])] > int(words[6]):
