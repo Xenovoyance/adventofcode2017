@@ -5,8 +5,6 @@ if run_env == "test":
 else:
     input = "input_dayten.txt"
 
-
-
 with open(input) as blockstream:
     for stream in blockstream:
         #
